@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Password Manager</h1>
+            <p>Securely store and manage your passwords</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Add Password Form -->
+            <div class="form-section">
+                <h2>Add New Password</h2>
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" placeholder="e.g., google.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username/Email</label>
+                        <input type="text" id="username" placeholder="e.g., user@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="password" placeholder="Enter password" required>
+                            <button type="button" id="togglePassword" class="toggle-btn">👁️</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="social">Social Media</option>
+                            <option value="email">Email</option>
+                            <option value="work">Work</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="banking">Banking</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Password</button>
+                </form>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-section">
+                <div class="search-controls">
+                    <input type="text" id="searchInput" placeholder="Search passwords...">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="social">Social Media</option>
+                        <option value="email">Email</option>
+                        <option value="work">Work</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="banking">Banking</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Passwords List -->
+            <div class="passwords-section">
+                <h2>Saved Passwords</h2>
+                <div id="passwordsList" class="passwords-grid">
+                    <!-- Passwords will be dynamically added here -->
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <p>No passwords saved yet. Add your first password above!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password Modal -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Password Details</h3>
+                <div class="modal-body">
+                    <div class="detail-group">
+                        <label>Website:</label>
+                        <span id="modalWebsite"></span>
+                    </div>
+                    <div class="detail-group">
+                        <label>Username:</label>
+                        <span id="modalUsername"></span>
+                    </div>
+                    <div class="detail-group">
+                        <label>Password:</label>
+                        <div class="password-display">
+                            <span id="modalPassword"></span>
+                            <button id="copyPassword" class="btn btn-small">Copy</button>
+                        </div>
+                    </div>
+                    <div class="detail-group">
+                        <label>Category:</label>
+                        <span id="modalCategory"></span>
+                    </div>
+                    <div class="detail-group">
+                        <label>Created:</label>
+                        <span id="modalCreated"></span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="editPassword" class="btn btn-secondary">Edit</button>
+                    <button id="deletePassword" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
